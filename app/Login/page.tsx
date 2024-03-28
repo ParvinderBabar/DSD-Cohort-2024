@@ -1,8 +1,12 @@
 "use client"
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const Login = () => {
+const router = useRouter();
+    
     const [selectedIngredients, setSelectedIngredients] = useState<string[]>([]);
     const [recipes, setRecipes] = useState<any[]>([]);
 
@@ -16,6 +20,13 @@ const Login = () => {
             setSelectedIngredients(updatedIngredients);
         }
     };
+    function PlanMeal() {
+       
+        console.log("planmeal function working");
+     
+       
+        router.push('/Login');
+    }  
 
    const generateRecipes = () => {
     const apiKey = 'ae9fab0183fd48e9b6af4a983da4897f'; // Update with your Spoonacular API key
@@ -41,6 +52,11 @@ const Login = () => {
         <div className="container mx-auto mt-20 text-center">
             <h1 className="text-3xl font-bold mb-8">Login</h1>
             <h1>Hello User!</h1>
+            <Link href="./PlanMeal">
+        <button  type="button"className="bg-teal-600 hover:bg-black text-white py-2 px-4 rounded mr-4 m-3 w-auto">
+          Start Next plan
+          </button></Link>
+     
             <h2>Select ingredient(s) to generate recipe</h2>
             <div>
                 {/* Render checkboxes for each ingredient */}

@@ -1,3 +1,4 @@
+
 "use client"
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -71,6 +72,7 @@ export default function SignUp() {
                     </label>
                 </div>
                 <button
+                    type="button"
                     onClick={handleSignUp}
                     className="w-full px-4 py-2 text-white bg-teal-500 rounded-md hover:bg-teal-600 focus:outline-none focus:bg-teal-600"
                     disabled={!acceptTerms} // Disable button if terms are not accepted

@@ -7,6 +7,25 @@
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
+.menu {
+  position: fixed;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  transition: bottom 0.3s ease;
+}
+
+.open {
+  bottom: 0;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+}
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -18,12 +37,6 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
 }
 
 @layer utilities {
