@@ -1,12 +1,10 @@
-
 "use client"
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
-
 const RecipeDetails = () => {
   const router = useRouter();
-  const recipeId = router.query.recipeId; // Access the recipeId directly from router.query
+  const { recipeId } = router.query; // Access the recipeId directly from router.query
   const [recipeDetails, setRecipeDetails] = useState(null);
 
   useEffect(() => {
@@ -29,11 +27,6 @@ const RecipeDetails = () => {
     }
   };
 
-  const handleAddToOptions = () => {
-    // Implement functionality to add recipe to options
-    console.log('Recipe added to options');
-  };
-
   if (!recipeDetails) {
     return <div>Loading...</div>;
   }
@@ -41,8 +34,8 @@ const RecipeDetails = () => {
   return (
     <div>
       <h1>{recipeDetails.title}</h1>
-      {/* Display other recipe details */}
-      <button onClick={handleAddToOptions}>Add to Options</button>
+      {/* Render other recipe details here */}
+      <button>Add to Options</button> {/* Button functionality to be implemented */}
     </div>
   );
 };
