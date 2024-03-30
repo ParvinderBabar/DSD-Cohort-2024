@@ -1,15 +1,6 @@
 {
   "extends": [
     "development"
-  ],
-  "hints": {
-    "axe/forms": [
-      "default",
-      {
-        "label": "off"
-      }
-    ],
-    "compat-api/css": "off",
-    "typescript-config/consistent-casing": "off"
-  }
+  ]
+  
 }
