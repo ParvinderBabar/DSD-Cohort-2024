@@ -1,61 +1,38 @@
-// "use client"
-// import { useState, useEffect } from "react";
-// import { findUnique } from "@/lib/prisma.js";
-
-// const RecipePage = ({ params }) => {
-//   const [recipeDetails, setRecipeDetails] = useState(null);
-//   const { recipeId } = params;
-
-//   useEffect(() => {
-//     const fetchRecipeDetails = async () => {
-//       try {
-//         const recipe = await findUnique({
-//           where: { id: recipeId }
-//         });
-//         setRecipeDetails(recipe);
-//       } catch (error) {
-//         console.error('Error fetching recipe details:', error);
-//       }
-//     };
-
-//     if (recipeId) {
-//       fetchRecipeDetails();
-//     }
-//   }, [recipeId]);
-
-//   if (!recipeDetails) {
-//     return <div>Loading...</div>;
-//   }
-
-//   return (
-//     <div>
-//       <h1>{recipeDetails.title}</h1>
-//       {/* Render other recipe details here */}
-//     </div>
-//   );
-// };
-
-// export default RecipePage;
 "use client"
-import { useRouter } from 'next/router';
+import { useState, useEffect } from "react";
 
-const RecipeDetails = () => {
-  // Access the router object using the useRouter hook
-  const router = useRouter();
+const RecipePage = ({ params }) => {
+  const [recipeDetails, setRecipeDetails] = useState(null);
+  const { recipeId } = params;
 
-  // Extract the recipeId from the query parameters
-  const { recipeId } = router.query;
+  useEffect(() => {
+    const fetchRecipeDetails = async () => {
+      try {
+        const apiKey = 'ae9fab0183fd48e9b6af4a983da4897f';
+        const response = await fetch(`https://api.spoonacular.com/recipes/${recipeId}/information?apiKey=${apiKey}`);
+        if (!response.ok) {
+          throw new Error('Failed to fetch recipe details');
+        }
+        const data = await response.json();
+        setRecipeDetails(data);
+      } catch (error) {
+        console.error('Error fetching recipe details:', error);
+      }
+    };
 
-  // Now you can use the recipeId in your component logic
-  // For example, you can fetch data for the recipe based on this ID
+    fetchRecipeDetails();
+  }, [recipeId]);
+
+  if (!recipeDetails) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div>
-      <h1>Recipe Details</h1>
-      <p>Recipe ID: {recipeId}</p>
-      {/* Add more UI elements */}
+      <h1>{recipeDetails.title}</h1>
+      {/* Render other recipe details here */}
     </div>
   );
 };
 
-export default RecipeDetails;
+export default RecipePage;
