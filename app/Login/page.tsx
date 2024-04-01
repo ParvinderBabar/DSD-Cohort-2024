@@ -29,7 +29,7 @@ const router = useRouter();
     }  
 
    const generateRecipes = () => {
-    const apiKey = 'ae9fab0183fd48e9b6af4a983da4897f'; // Update with your Spoonacular API key
+    const apiKey = 'ae9fab0183fd48e9b6af4a983da4897f'; // Update with Spoonacular API key
     // Call the Spoonacular API to generate recipes based on selected ingredients
     fetch(`https://api.spoonacular.com/recipes/findByIngredients?ingredients=${selectedIngredients.join(',')}&apiKey=${apiKey}`)
         .then(response => {
