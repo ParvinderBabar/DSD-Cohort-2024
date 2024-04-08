@@ -6,9 +6,10 @@ import Link from "next/link";
 
 const RecipePage = () => {
   const [recipes, setRecipes] = useState([]);
-  // const apiKey = "43090ee37698431d9400a53ec4cf8e5d";
-  //  const apiKey = "ae9fab0183fd48e9b6af4a983da4897f";
-   const apiKey="4ea43c3d4d094e73bd1279ff484b7acf"
+    // const apiKey = "43090ee37698431d9400a53ec4cf8e5d";
+   const apiKey = "ae9fab0183fd48e9b6af4a983da4897f";
+  //  const apiKey = "4ea43c3d4d094e73bd1279ff484b7acf";
+  
 
   useEffect(() => {
     fetchRecipes();

@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/Recipes/page.jsx", "app/Components/BottomMenu.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/Recipes/page.jsx", "app/Components/BottomMenu.jsx", "app/SignUp/page.jsx", "app/Login/page.jsx", "app/SignUp/page.jsx", "app/PlanMeal/page.jsx"],
   "exclude": ["node_modules"]
 }
